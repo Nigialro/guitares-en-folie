@@ -33,14 +33,14 @@ if (($_POST['email'] == $_POST['email_check']) && ($_POST['password'] == $_POST[
                     phoneUser
                 )
                 VALUES (
-                    nameUser  = :nameUser,
-                    surnameUser = :surnameUser,
-                    adressUser = :adressUser,
-                    zipUser = :zipUser,
-                    cityUser = :cityUser,
-                    emailUser = :emailUser,
-                    mdpUser = :mdpUser,
-                    phoneUser = :phoneUser
+                    :nameUser,
+                    :surnameUser,
+                    :adressUser,
+                    :zipUser,
+                    :cityUser,
+                    :emailUser,
+                    :mdpUser,
+                    :phoneUser
                 )
                 ";
         //Préparation de la requête

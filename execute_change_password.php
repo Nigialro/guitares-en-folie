@@ -15,9 +15,8 @@ if ($_POST['password'] == $_POST['password_check']) {
             'idUser' => $_POST['idUser']
         ];
         //Rédaction de la requête
-        $sqlQuery = "UPDATE Utilisateur
-                SET
-                mdpUser = :mdpUser
+        $sqlQuery = "INSERT INTO Utilisateur (mdpUser)
+                VALUE (:mdpUser)
                 WHERE
                 idUser = :idUser";
         //Préparation de la requête

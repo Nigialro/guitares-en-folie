@@ -45,14 +45,8 @@ try{
 
             mail($to, $subject, $message, $headers);
 
-            //Message de validation
-            echo "Votre demande de réinitialisation a été transmise à nos services. Vous allez recevoir un email d'ici peu.";
+            include('password_time.php');
 
-        } catch(Exception $e){
-            //Gestion d'erreur
-            die("Erreur: ".$e->getMessage());
-
-        }
     }
     else {
         //Cas où l'email n'existe pas en base de données
