@@ -2,7 +2,7 @@
 echo
     "
     <h1 class='text-center'>S'identifier</h1><br>
-    <form action='connected.php' method='POST'>
+    <form action='index.php' method='POST'>
         <div class='form-group'>
             <label for='email'>Entrer adresse email</label><br>
             <input type='email' id='email' name='email' required><br>

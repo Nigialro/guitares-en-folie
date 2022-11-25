@@ -25,7 +25,7 @@ try{
         try{
             //Paramètres de la requête
             $tableauParams = [
-                'emailUser' => $_POST['email'],
+                'emailUser' => $_POST['email']
             ];
             //Rédaction de la requête
             $sqlQuery = "SELECT idUser FROM Utilisateur WHERE emailUser=:emailUser";

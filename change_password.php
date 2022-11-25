@@ -18,7 +18,7 @@
     try{
         //Paramètres de la requête
         $tableauParams = [
-            'idUser' => $selectedId,
+            'idUser' => $selectedId
         ];
         //Rédaction de la requête
         $sqlQuery = "SELECT idUser, emailUser FROM Utilisateur WHERE idUser=:idUser";

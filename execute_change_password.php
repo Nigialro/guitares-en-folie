@@ -10,7 +10,7 @@ if ($_POST['password'] == $_POST['password_check']) {
         //Paramètres de la requête
         $tableauParams = [
             'mdpUser' => $password,
-            'idUser' => $_POST['idUser'],
+            'idUser' => $_POST['idUser']
         ];
         //Rédaction de la requête
         $sqlQuery = "UPDATE Utilisateur
