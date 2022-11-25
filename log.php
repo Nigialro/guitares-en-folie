@@ -8,7 +8,7 @@
 
 <body>
 <?php
-if($_SESSION['connected'] !== 1) {
+if(!isset($_SESSION['connected']) || $_SESSION['connected'] !== 1) {
     if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['password'] = $_POST['password'];

@@ -40,7 +40,7 @@ try{
             $to      = $_POST['email'];
             $subject = "Réinitialisation du mot de passe";
             $message = "Vous avez demandé la réinitialisation de votre mot de passe." . "\r\n" .
-                "<a href='change_password.php?idUser=" . $idUser . "'>Merci de suivre ce lien</a>";
+                "<a href='change_password.php?id=" . $idUser . "'>Merci de suivre ce lien</a>";
             $headers = "Content-type: text/html; charset=UTF-8"."\r\n";
 
             mail($to, $subject, $message, $headers);

@@ -14,7 +14,7 @@ try{
         'emailUser' => $_POST['email']
     ];
     //Rédaction de la requête
-    $sqlQuery2 = "INSERT INTO Utilisateur (modifMdpUser) VALUE (:modifMdpUser) WHERE emailUser=:emailUser";
+    $sqlQuery2 = "UPDATE Utilisateur SET modifMdpUser = :modifMdpUser WHERE emailUser=:emailUser";
     //Préparation de la requête
     $requete2= $db->prepare($sqlQuery2);
     //Execution de la requête

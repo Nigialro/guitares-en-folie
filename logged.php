@@ -1,4 +1,6 @@
 <?php
+include('connexion.php');
+
 try {
     //Paramètres de la requête
     $tableauParams = [
@@ -16,9 +18,11 @@ try {
     echo
     "
     <h1 class='text-center'>" . $infosUser['nameUser'] . " " . $infosUser['surnameUser'] . "</h1><br>
-    <button href='account.php'>Accéder au compte</button>
-    <button href='logout.php'>Se déconnecter</button>
     ";
+?>
+    <a href='account.php'><button type='button'>Accéder au compte</button></a>
+    <a href='logout.php'><button type='button'>Se déconnecter</button></a>
+<?php
 
 } catch (Exception $e) {
     //Gestion d'erreur

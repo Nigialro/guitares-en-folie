@@ -1,3 +1,5 @@
 <?php
-echo "Il est l'heure d'aller manger ! ^^";
+session_start();
+
+echo "Il va falloir digérer ! ^^";
 ?>

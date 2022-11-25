@@ -29,11 +29,12 @@ if ($_POST['password'] == $_POST['password_check']) {
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['connected'] = 1;
+
+        $db -> commit();
+
         sleep(3);
         header("Location: index.php");
         exit;
-
-        $db -> commit();
 
     } catch(Exception $e){
         //Gestion d'erreur

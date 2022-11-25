@@ -5,11 +5,12 @@
     <title>Modification du mot de passe</title>
 </head>
 <body>
+
 <?php
 include('connexion.php');
 
 if (isset($_GET['id'])) {
-        $selectedId = $_GET['idUser'];
+        $selectedId = $_GET['id'];
     }
     else {
         $selectedId = $_POST['idUser'];
