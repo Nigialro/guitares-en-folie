@@ -2,73 +2,34 @@
 <html lang="fr">
 <head>
     <?php require('meta_head.php') ?>
-    <title>Connexion Compte</title>
+    <title>Création Compte</title>
 </head>
 <body>
-<h1>
-    Page de connexion <span>Clients</span>
-</h1>
-
 
 <form method="POST" action=create_account_insert.php>
-    <div class="form-group">
-        <label for="exampleInputFirstName">PRENOM</label>
-        <input type="name" class="form-control" id="exampleInputName" aria-describedby="Name"
-               placeholder="Entrez votre prenom">
-        <small id="surnameHelp" class="form-text text-muted">Ecrivez votre prénom</small>
+    <div class='form-group'>
+        <label for='surname'>NOM</label><br>
+        <input type='name' id='surname' name='surname' required placeholder="Écrivez votre nom..."><br>
+        <label for='name'>PRÉNOM</label><br>
+        <input type='name' id='name' name='name' required placeholder="Écrivez votre prénom..."><br>
+        <label for='adress'>ADRESSE</label><br>
+        <input type='text' id='adress' name='adress' required placeholder="Écrivez votre adresse..."><br>
+        <label for='zip'>CODE POSTAL</label><br>
+        <input type='number' id='zip' name='zip' required placeholder="Écrivez votre code postal..."><br>
+        <label for='city'>VILLE</label><br>
+        <input type='name' id='city' name='city' required placeholder="Écrivez le nom de votre ville..."><br>
+        <label for='email'>ADRESSE EMAIL</label><br>
+        <input type='email' id='email' name='email' required placeholder="Écrivez votre adresse email..."><br>
+        <label for='email_check'>CONFIRMATION ADRESSE EMAIL</label><br>
+        <input type='email' id='email_check' name='email_check' required placeholder="Confirmez votre adresse email..."><br>
+        <label for='password'>MOT DE PASSE</label><br>
+        <input type='password' id='password' name='password' required placeholder="Entrez votre mot de passe..."><br>
+        <label for='password_check'>CONFIRMATION MOT DE PASSE</label><br>
+        <input type='password' id='password_check' name='password_check' required placeholder="Confirmez votre mot de passe..."><br>
+        <label for='tel'>NUMÉRO DE TÉLÉPHONE</label><br>
+        <input type='tel' id='tel' name='tel' required placeholder="Entrez votre numéro de téléphone..."><br>
+        <input type='submit' value='ENREGISTRER'>
     </div>
-    <div class="form-group">
-        <label for="exampleInputSurname">NOM</label>
-        <input type="surname" class="form-control" id="exampleInputSurname" aria-describedby="surname"
-               placeholder="Entrez votre nom">
-        <small id="surnameHelp" class="form-text text-muted">Ecrivez votre nom</small>
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputStreet">RUE</label>
-        <input type="street" class="form-control" id="exampleInputAdress" aria-describedby="street"
-               placeholder="Entrez votre rue">
-        <small id="streetHelp" class="form-text text-muted">Ecrivez votre nom de rue</small>
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputAdress">CODE POSTAL</label>
-        <input type="zip" class="form-control" id="exampleInputZip" aria-describedby="zip" placeholder="Entrez votre code Postal">
-        <small id="zipHelp" class="form-text text-muted">Ecrivez votre Code Postal</small>
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputCity">VILLE</label>
-        <input type="adress" class="form-control" id="exampleInputCity" aria-describedby="city"
-               placeholder="Enter your city">
-        <small id="cityHelp" class="form-text text-muted">Ecrirez votre ville</small>
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputEmail1">ADRESSE EMAIL</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-               placeholder="Entrez votre mail">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputPhone">NUMERO DE TELEPHONE</label>
-        <input type="phone" class="form-control" id="exampleInputphone" aria-describedby="phoneHelp"
-               placeholder="Entrez votre numéro de téléphone">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputPassword">MOT DE PASSE</label>
-        <input type="password" class="form-control" id="exampleInputPassword" aria-describedby="emailHelp"
-               placeholder="Entrez votre mot de passe">
-        <small id="passwordHelp" class="form-text text-muted">Nous ne partagerons pas vos données personnelles avec des
-            tiers.</small>
-    </div>
-
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Me gardez connecté</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
 
 </body>
