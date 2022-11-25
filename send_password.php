@@ -47,6 +47,12 @@ try{
 
             include('password_time.php');
 
+        } catch(Exception $e){
+            //Gestion d'erreur
+            die("Erreur: ".$e->getMessage());
+
+        }
+
     }
     else {
         //Cas où l'email n'existe pas en base de données
