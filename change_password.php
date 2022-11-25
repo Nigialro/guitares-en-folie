@@ -22,7 +22,7 @@ try {
         'idUser' => $selectedId
     ];
     //Rédaction de la requête
-    $sqlQuery = "SELECT modifMdp FROM Utilisateur WHERE idUser=:idUser";
+    $sqlQuery = "SELECT modifMdpUser FROM Utilisateur WHERE idUser=:idUser";
     //Préparation de la requête
     $requete = $db->prepare($sqlQuery);
     //Execution de la requête
@@ -38,7 +38,7 @@ try {
 
     $currentTime = new DateTime();
 
-    if ($currentTime < $allowedDate['modifMdp']) {
+    if ($currentTime < $allowedDate['modifMdpUser']) {
         try {
             //Paramètres de la requête
             $tableauParams = [

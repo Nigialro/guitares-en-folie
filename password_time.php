@@ -10,11 +10,11 @@ try{
     $stamp = $time->format('Y-m-d H:i:s');
 
     $tableauParams2 = [
-        'modifMdp' => $stamp,
+        'modifMdpUser' => $stamp,
         'emailUser' => $_POST['email']
     ];
     //Rédaction de la requête
-    $sqlQuery2 = "INSERT INTO Utilisateur (modifMdp) VALUE (:modifMdp) WHERE emailUser=:emailUser";
+    $sqlQuery2 = "INSERT INTO Utilisateur (modifMdpUser) VALUE (:modifMdpUser) WHERE emailUser=:emailUser";
     //Préparation de la requête
     $requete2= $db->prepare($sqlQuery2);
     //Execution de la requête
