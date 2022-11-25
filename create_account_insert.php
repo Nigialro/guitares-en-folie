@@ -18,8 +18,10 @@ if (($_POST['email'] == $_POST['email_check']) && ($_POST['password'] == $_POST[
             'cityUser' => $_POST['city'],
             'emailUser' => $_POST['email'],
             'mdpUser' => $password,
-            'phoneUser' => $_POST['tel']
+            'phoneUser' => $_POST['tel'],
+            'modifMdpUser' => date('Y-m-d H:i:s')
         ];
+
         //Rédaction de la requête
         $sqlQuery = "
                 INSERT INTO Utilisateur (
@@ -30,7 +32,8 @@ if (($_POST['email'] == $_POST['email_check']) && ($_POST['password'] == $_POST[
                     cityUser,
                     emailUser,
                     mdpUser,
-                    phoneUser
+                    phoneUser,
+                    modifMdpUser
                 )
                 VALUES (
                     :nameUser,
@@ -40,9 +43,12 @@ if (($_POST['email'] == $_POST['email_check']) && ($_POST['password'] == $_POST[
                     :cityUser,
                     :emailUser,
                     :mdpUser,
-                    :phoneUser
+                    :phoneUser,
+                    :modifMdpUser
                 )
                 ";
+
+
         //Préparation de la requête
         $requete= $db->prepare($sqlQuery);
         //Execution de la requête
@@ -53,11 +59,14 @@ if (($_POST['email'] == $_POST['email_check']) && ($_POST['password'] == $_POST[
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['connected'] = 1;
+
+        $db -> commit();
+
         sleep(3);
         header("Location: index.php");
         exit;
 
-        $db -> commit();
+
 
     } catch(Exception $e){
         //Gestion d'erreur

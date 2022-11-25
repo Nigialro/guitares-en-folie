@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mer. 23 nov. 2022 à 11:14
+-- Généré le : ven. 25 nov. 2022 à 11:32
 -- Version du serveur :  5.7.34
 -- Version de PHP : 8.0.8
 
@@ -140,17 +140,7 @@ CREATE TABLE `Utilisateur` (
   `emailUser` varchar(50) DEFAULT NULL,
   `phoneUser` varchar(10) DEFAULT NULL,
   `mdpUser` varchar(255) DEFAULT NULL,
-  `sendSurnameUser` varchar(50) DEFAULT NULL,
-  `sendAdressUser` varchar(150) DEFAULT NULL,
-  `sendZipUser` varchar(5) DEFAULT NULL,
-  `sendCityUser` varchar(50) DEFAULT NULL,
-  `sendPhoneUser` varchar(10) DEFAULT NULL,
-  `billNameUser` varchar(50) DEFAULT NULL,
-  `billSurnameUser` varchar(50) DEFAULT NULL,
-  `billAdressUser` varchar(150) DEFAULT NULL,
-  `billZipUser` varchar(5) DEFAULT NULL,
-  `billCityUser` varchar(50) DEFAULT NULL,
-  `billPhoneUser` varchar(10) DEFAULT NULL
+  `modifMdpUser` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

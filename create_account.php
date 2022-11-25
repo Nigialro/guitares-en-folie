@@ -15,7 +15,7 @@
         <label for='adress'>ADRESSE</label><br>
         <input type='text' id='adress' name='adress' required placeholder="Écrivez votre adresse..."><br>
         <label for='zip'>CODE POSTAL</label><br>
-        <input type='number' id='zip' name='zip' required placeholder="Écrivez votre code postal..."><br>
+        <input type='text' id='zip' name='zip' required placeholder="Écrivez votre code postal..."><br>
         <label for='city'>VILLE</label><br>
         <input type='name' id='city' name='city' required placeholder="Écrivez le nom de votre ville..."><br>
         <label for='email'>ADRESSE EMAIL</label><br>
