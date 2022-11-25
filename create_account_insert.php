@@ -1,53 +1,77 @@
 <?php
+session_start();
 
-//Connexion à la base de données
-include "connexion.php";
+include('connexion.php');
 
-function insert()
-{
-//Insertion des données dans la BDD
-    $insert_query = "INSERT INTO Utilisateur (nameUser, surnameUser, adressUser, zipUser, cityUser, emailUser, phoneUser, mdpUser) VALUES (:nameUser, :surnameUser, :adressUser, :zipUser, :emailUser, :phoneUser, :mdpUser);";
-    $insert_statement = $db->prepare($insert_query);
+if (($_POST['email'] == $_POST['email_check']) && ($_POST['password'] == $_POST['password_check'])) {
+    try{
+        $db -> beginTransaction();
 
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $insert_statement->bindParam(':nameUser', $nomUtilisateur);
-    $insert_statement->bindParam(':surnameUser', $nomfamilleUtilisateur);
-    $insert_statement->bindParam(':adressUser', $adressUser);
-    $insert_statement->bindParam(':zipUser', $zipUser);
-    $insert_statement->bindParam(':cityUser', $cityUser);
-    $insert_statement->bindParam(':emailUser', $emailUser);
-    $insert_statement->bindParam(':phoneUser', $phoneUser);
-    $insert_statement->bindParam(':mdpUser', $mdpUser);
+        //Paramètres de la requête
+        $tableauParams = [
+            'nameUser' => $_POST['name'],
+            'surnameUser' => $_POST['surname'],
+            'adressUser' => $_POST['adress'],
+            'zipUser' => $_POST['zip'],
+            'cityUser' => $_POST['city'],
+            'emailUser' => $_POST['email'],
+            'mdpUser' => $password,
+            'phoneUser' => $_POST['tel']
+        ];
+        //Rédaction de la requête
+        $sqlQuery = "
+                INSERT INTO Utilisateur (
+                    nameUser,
+                    surnameUser,
+                    adressUser,
+                    zipUser,
+                    cityUser,
+                    emailUser,
+                    mdpUser,
+                    phoneUser
+                )
+                VALUES (
+                    nameUser  = :nameUser,
+                    surnameUser = :surnameUser,
+                    adressUser = :adressUser,
+                    zipUser = :zipUser,
+                    cityUser = :cityUser,
+                    emailUser = :emailUser,
+                    mdpUser = :mdpUser,
+                    phoneUser = :phoneUser
+                )
+                ";
+        //Préparation de la requête
+        $requete= $db->prepare($sqlQuery);
+        //Execution de la requête
+        $requete->execute($tableauParams);
 
+        //Message de validation
+        echo "Votre compte a bien été enregistré.";
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['password'] = $_POST['password'];
+        $_SESSION['connected'] = 1;
+        sleep(3);
+        header("Location: index.php");
+        exit;
 
-    $nameUser = $_POST['nameUser'];
-    $surnameUser = $_POST['surnameUser'];
-    $adressUser = $_POST['adressUser'];
-    $zipUser = $_POST['zipUser'];
-    $cityUser = $_POST['cityUser'];
-    $emailUser = $_POST['emailUser'];
-    $phoneUser = $_POST['phoneUser'];
-    $mdpUser = $_POST['mdpUser'];
+        $db -> commit();
 
-    $insert_statement->execute();
-    $insert_statement = null;
+    } catch(Exception $e){
+        //Gestion d'erreur
+        die("Erreur: ".$e->getMessage());
+
+        $db -> rollBack();
+
+    }
+}
+else {
+    echo "Il y a eu une erreur dans les données saisies.";
+    sleep(3);
+    header("Location: create_account.php");
+    exit;
 }
 
-
-//Préparation de la requête
-$sqlQuery = "SELECT idUser, nameUser, surnameUser, adressUser, zipUser, cityUser, emailUser, phoneUser, mdpUser FROM utilisateur";
-$requete = $db->prepare($sqlQuery);
-
-//Execution de la requête
-$requete->execute();
-
-//Récupération des résultats
-$resultats = $requete->fetchAll();
-
-if ($resultats != false) {
-    // echo "y'a une valeur";
-    return $resultats;
-} else {
-    // echo "y'a pas de valeur";
-}
 ?>

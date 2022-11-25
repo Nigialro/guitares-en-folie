@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include('connexion.php');
 
 if ($_POST['password'] == $_POST['password_check']) {
@@ -25,6 +27,12 @@ if ($_POST['password'] == $_POST['password_check']) {
 
         //Message de validation
         echo "La modification de votre mot de passe a bien été prise en compte.";
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['password'] = $_POST['password'];
+        $_SESSION['connected'] = 1;
+        sleep(3);
+        header("Location: index.php");
+        exit;
 
         $db -> commit();
 
