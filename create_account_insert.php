@@ -3,6 +3,8 @@ session_start();
 
 include('connexion.php');
 
+date_default_timezone_set('Europe/Paris');
+
 if (($_POST['email'] == $_POST['email_check']) && ($_POST['password'] == $_POST['password_check'])) {
 
     $emailsFromUsers = [];

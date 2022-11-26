@@ -15,10 +15,9 @@ if ($_POST['password'] == $_POST['password_check']) {
             'idUser' => $_POST['idUser']
         ];
         //Rédaction de la requête
-        $sqlQuery = "INSERT INTO Utilisateur (mdpUser)
-                VALUE (:mdpUser)
-                WHERE
-                idUser = :idUser";
+        $sqlQuery = "UPDATE Utilisateur SET
+                    mdpUser = :mdpUser
+                WHERE idUser = :idUser";
         //Préparation de la requête
         $requete= $db->prepare($sqlQuery);
         //Execution de la requête
@@ -45,9 +44,10 @@ if ($_POST['password'] == $_POST['password_check']) {
     }
 }
 else {
+    $returnIdUser = $_POST['idUser'];
     echo "Il y a eu une erreur dans les données saisies.";
     sleep(3);
-    header("Location: change_password.php?idUser=$_POST['idUser']");
+    header("Location: password_change.php?idUser=$returnIdUser");
     exit;
 }
 

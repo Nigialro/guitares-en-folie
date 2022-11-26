@@ -31,35 +31,30 @@ try {
     //Récupération des résultats
     $allowedDate = $requete->fetch();
 
-} catch (Exception $e) {
-    //Gestion d'erreur
-    die("Erreur: " . $e->getMessage());
-
-}
-
     $currentTime = new DateTime();
+    $stampNow = $currentTime->format('Y-m-d H:i:s');
 
-    if ($currentTime < $allowedDate['modifMdpUser']) {
+    if ($stampNow < $allowedDate['modifMdpUser']) {
         try {
             //Paramètres de la requête
-            $tableauParams = [
+            $tableauParams3 = [
                 'idUser' => $selectedId
             ];
             //Rédaction de la requête
-            $sqlQuery = "SELECT idUser, emailUser FROM Utilisateur WHERE idUser=:idUser";
+            $sqlQuery3 = "SELECT idUser, emailUser FROM Utilisateur WHERE idUser=:idUser";
             //Préparation de la requête
-            $requete = $db->prepare($sqlQuery);
+            $requete3 = $db->prepare($sqlQuery3);
             //Execution de la requête
-            $requete->execute($tableauParams);
+            $requete3->execute($tableauParams3);
             //Récupération des résultats
-            $user = $requete->fetch();
+            $user = $requete3->fetch();
 
             echo
                 "
             <h1 class='text-center'>Modification de mot de passe</h1><br>
-            <form action='execute_change_password.php' method='POST'>
+            <form action='password_change_update.php' method='POST'>
                 <div class='form-group'>
-                    <input type='hidden' name='idUser' value=" . $user['idUser'] . ">
+                    <input type='hidden' name='idUser' value='" . $user['idUser'] . "'>
                     <label for='email'></label><br>
                     <input type='email' id='email' name='email' readonly value='" . $user['emailUser'] . "'><br>
                     <label for='password'>Entrer le nouveau mot de passe</label><br>
@@ -80,6 +75,13 @@ try {
     else {
         echo "Désolé, le temps pour changer votre mot de passe semble être écoulé : vous pouvez réessayer...";
     }
+
+} catch (Exception $e) {
+    //Gestion d'erreur
+    die("Erreur: " . $e->getMessage());
+
+}
+
 ?>
 </body>
 </html>

@@ -2,6 +2,8 @@
 try{
     $db -> beginTransaction();
 
+    date_default_timezone_set('Europe/Paris');
+
     $minutes_to_add = 15;
 
     $time = new DateTime();
@@ -19,9 +21,6 @@ try{
     $requete2= $db->prepare($sqlQuery2);
     //Execution de la requête
     $requete2->execute($tableauParams2);
-
-    //Message de validation
-    echo "Votre demande de réinitialisation a été transmise à nos services et sera effective durant 15 minutes. Vous allez recevoir un email d'ici peu.";
 
     $db -> commit();
 

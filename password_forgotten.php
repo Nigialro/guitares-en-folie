@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1 class='text-center'>Mot de passe oublié</h1><br>
-    <form action='send_password.php' method='POST'>
+    <form action='password_send.php' method='POST'>
         <div class='form-group'>
             <label for='email'>Entrer adresse email</label><br>
             <input type='email' id='email' name='email' required><br>

@@ -46,7 +46,7 @@ echo
         <input type='name' id='name' name='name' readonly value='" . $infosUser['nameUser'] . "'><br>
         <label for='adress'>ADRESSE</label><br>
         <input type='text' id='adress' name='adress' readonly value='" . $infosUser['adressUser'] . "'><br>
-<label for='zip'>CODE POSTAL</label><br>
+        <label for='zip'>CODE POSTAL</label><br>
         <input type='number' id='zip' name='zip' readonly value='" . $infosUser['zipUser'] . "'><br>
         <label for='city'>VILLE</label><br>
         <input type='name' id='city' name='city' readonly value='" . $infosUser['cityUser'] . "'><br>
@@ -57,7 +57,7 @@ echo
         <input type='submit' value='Modifier Compte'>
     </div>
 </form>
-<form method='POST' action=change_password.php>
+<form method='POST' action=password_change.php>
     <input type='hidden' name='idUser' value='" . $infosUser['idUser'] . "'>
     <input type='hidden' name='email' value='" . $infosUser['emailUser'] . "'>
     <input type='submit' value='Changer Mot de passe'>
